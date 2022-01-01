@@ -18,7 +18,7 @@ steps:
         path: /var/run
     commands:
       - sleep 5 # give docker enough time to start
-      - docker login -u $USERNAME --password $PASSWORD $ENDPOINT
+      - docker login -u $USERNAME --password $PASSWORD http://$ENDPOINT
       - docker build -t $ENDPOINT/library/ks-share .
       - docker image prune --filter label=stage=builder
       - docker push $ENDPOINT/library/ks-share:latest
