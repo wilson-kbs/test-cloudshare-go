@@ -1,4 +1,4 @@
-module github.com/wilson-kbs/tus-test
+module github.com/wilson-kbs/test-cloudshare-go
 
 go 1.17
 

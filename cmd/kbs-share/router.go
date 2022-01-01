@@ -5,9 +5,9 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	tusd "github.com/tus/tusd/pkg/handler"
-	"github.com/wilson-kbs/tus-test/pkg/handler"
-	"github.com/wilson-kbs/tus-test/pkg/web"
-	"github.com/wilson-kbs/tus-test/ui"
+	"github.com/wilson-kbs/test-cloudshare-go/pkg/handler"
+	"github.com/wilson-kbs/test-cloudshare-go/pkg/web"
+	"github.com/wilson-kbs/test-cloudshare-go/ui"
 	"net/http"
 	"strings"
 )

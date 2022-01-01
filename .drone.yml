@@ -1,16 +1,27 @@
 ---
 kind: pipeline
 name: default
+type: docker
 
 steps:
-  - name: test
+  - name: build
     image: docker:dind
+    environment:
+      USERNAME:
+        from_secret: DOCKER_USERNAME
+      PASSWORD:
+        from_secret: DOCKER_PASSWORD
+      ENDPOINT:
+        from_secret: DOCKER_ENDPOINT
     volumes:
       - name: dockersock
         path: /var/run
     commands:
       - sleep 5 # give docker enough time to start
-      - docker ps -a
+      - docker login -u $USERNAME --password $PASSWORD $ENDPOINT
+      - docker build -t $ENDPOINT/library/ks-share .
+      - docker image prune --filter label=stage=builder
+      - docker push $ENDPOINT/library/ks-share:latest
 
 services:
   - name: docker
