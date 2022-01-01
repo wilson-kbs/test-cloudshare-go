@@ -8,11 +8,11 @@ steps:
     image: docker:dind
     environment:
       USERNAME:
-        from_secret: DOCKER_USERNAME
+        from_secret: d_u
       PASSWORD:
-        from_secret: DOCKER_PASSWORD
+        from_secret: d_p
       ENDPOINT:
-        from_secret: DOCKER_ENDPOINT
+        from_secret: d_e
     volumes:
       - name: dockersock
         path: /var/run
