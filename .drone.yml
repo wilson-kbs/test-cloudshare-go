@@ -19,9 +19,9 @@ steps:
     commands:
       - sleep 5 # give docker enough time to start
       - docker login --username $USERNAME --password $PASSWORD $ENDPOINT
-      - docker build -t $ENDPOINT/library/ks-share .
+      - docker build -t $ENDPOINT/cloudshare/ks-share .
       - docker image prune --filter label=stage=builder
-      - docker push $ENDPOINT/library/ks-share:latest
+      - docker push $ENDPOINT/cloudshare/ks-share:latest
 
 services:
   - name: docker
